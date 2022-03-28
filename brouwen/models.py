@@ -50,10 +50,10 @@ class Mout(models.Model):
     naam = models.CharField(max_length=150)
     type = models.CharField(max_length=50, choices=MOUT_TYPES)
     max_sg = models.DecimalField(max_digits=4, decimal_places=3)
-    lovibond = models.DecimalField()
+    lovibond = models.DecimalField(decimal_places=1, max_digits=5)
     beschrijving = models.TextField()
     voorraad = models.IntegerField()
-    prijs = models.DecimalField(decimal_places=2, help_text='per kg')
+    prijs = models.DecimalField(decimal_places=2, max_digits=5, help_text='per kg')
 
     class Meta:
         verbose_name = 'Mout'
