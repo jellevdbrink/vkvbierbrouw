@@ -30,27 +30,27 @@ GIST_FLOCS = [
 ]
 
 
-class Brouwer(models.Model):
-    voornaam = models.CharField(max_length=50)
-    achternaam = models.CharField(max_length=100)
-    gebrouwen = models.IntegerField(verbose_name='Gebrouwen bieren', default=0)
+# class Brouwer(models.Model):
+#     voornaam = models.CharField(max_length=50)
+#     achternaam = models.CharField(max_length=100)
+#     gebrouwen = models.IntegerField(verbose_name='Gebrouwen bieren', default=0)
 
-    class Meta:
-        verbose_name = 'Brouwer'
-        verbose_name_plural = 'Brouwers'
+#     class Meta:
+#         verbose_name = 'Brouwer'
+#         verbose_name_plural = 'Brouwers'
 
-    def get_volledige_naam(self):
-        return f'{self.voornaam} {self.achternaam}'
+#     def get_volledige_naam(self):
+#         return f'{self.voornaam} {self.achternaam}'
 
-    def __str__(self):
-        return self.get_volledige_naam()
+#     def __str__(self):
+#         return self.get_volledige_naam()
 
 
 class Mout(models.Model):
     naam = models.CharField(max_length=150)
     type = models.CharField(max_length=50, choices=MOUT_TYPES)
     max_sg = models.DecimalField(max_digits=4, decimal_places=3)
-    lovibond = models.DecimalField(decimal_places=1, max_digits=5)
+    lovibond = models.DecimalField(decimal_places=1, max_digits=5, blank=True)
     beschrijving = models.TextField()
     voorraad = models.IntegerField()
     prijs = models.DecimalField(decimal_places=2, max_digits=5, help_text='per kg')
